@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Recebida! - Chapa Do Sertão ao Litoral</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul: #7AB9E2; 
+            --petroleo: #1D3535; 
+            --bege: #E9E1B7; 
+            --amarelo: #E3A626; 
+            --marrom: #5C321E; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bege); 
+            color: var(--petroleo); 
+            font-family: 'Space Grotesk', sans-serif; 
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Textura de Fundo (Papel/Zine) */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.05; pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/felt.png');
+            z-index: 1000;
+        }
+
+        /* --- HEADER SIMPLIFICADO --- */
+        nav {
+            width: 100%; padding: 15px 5%;
+            background: var(--petroleo);
+            display: flex; justify-content: center; align-items: center;
+            border-bottom: 3px solid var(--amarelo);
+        }
+        nav .brand { color: var(--bege); font-family: 'Archivo Black'; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- CONTEÚDO CENTRAL --- */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .sucesso-box {
+            background: white;
+            border: 5px solid var(--petroleo);
+            box-shadow: 15px 15px 0px var(--azul);
+            max-width: 600px;
+            width: 100%;
+            padding: clamp(30px, 5vw, 50px);
+            text-align: center;
+            transform: rotate(-1deg);
+        }
+
+        .icon-box {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 20px;
+            animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0) rotate(-20deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: white;
+            background: var(--petroleo);
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--amarelo);
+            color: var(--petroleo);
+            text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 3px solid var(--petroleo);
+            box-shadow: 5px 5px 0px var(--marrom);
+            transition: 0.2s;
+        }
+
+        .btn-voltar:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px var(--marrom);
+            background: var(--bege);
+        }
+
+        .btn-voltar:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0px var(--marrom);
+        }
+
+        /* --- FOOTER --- */
+        footer { background: #000; color: #fff; text-align: center; padding: 30px 20px; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+
+        @media (max-width: 480px) {
+            .sucesso-box { box-shadow: 10px 10px 0px var(--azul); transform: rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">CHAPA 265 • DO SERTÃO AO LITORAL</div>
+    </nav>
+
+    <main>
+        <div class="sucesso-box">
+            <div class="icon-box">✊🔥</div>
+            <h1>Valeu pelo contato!</h1>
+            <p>Sua mensagem, denúncia ou sugestão foi enviada com sucesso para a nossa coordenação. A voz de cada campus é o que move a nossa mobilização!</p>
+            <a href="index.html" class="btn-voltar">Voltar para o site</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>DO SERTÃO AO LITORAL - RECONSTRUIR E AVANÇAR</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Chapa Candidata ao DCE UPE 2026</p>
+    </footer>
+
+</body>
+</html>

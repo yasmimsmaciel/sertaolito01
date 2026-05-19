@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapa Do Sertão ao Litoral - UPE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul: #7AB9E2; 
+            --petroleo: #1D3535; 
+            --bege: #E9E1B7; 
+            --amarelo: #E3A626; 
+            --marrom: #5C321E; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bege); color: var(--petroleo); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* Textura de Fundo (Papel/Zine) */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.05; pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/felt.png');
+            z-index: 1000;
+        }
+
+        /* --- HEADER MODERNO (GLASSMORPHISM) --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 15px 5%;
+            background: rgba(29, 53, 53, 0.95); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 10000; border-bottom: 3px solid var(--amarelo);
+        }
+        nav .brand { color: var(--bege); font-family: 'Archivo Black'; font-size: 1.2rem; text-transform: uppercase; }
+        nav .links a { color: var(--bege); text-decoration: none; margin-left: 20px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+        nav .links a:hover { color: var(--amarelo); }
+
+        /* --- HERO SECTION --- */
+        header {
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; position: relative;
+            background: radial-gradient(circle, var(--bege) 0%, #dfd5a2 100%);
+            padding: 100px 20px 60px;
+        }
+
+        .hero-logo { 
+            width: clamp(140px, 20vw, 180px); margin-bottom: 20px; 
+            filter: drop-shadow(8px 8px 0px var(--petroleo));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        .section-tag { background: var(--marrom); color: white; padding: 5px 15px; display: inline-block; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; font-size: 0.8rem; }
+
+        header h1 {
+            font-family: 'Archivo Black', sans-serif; font-size: clamp(2.2rem, 9vw, 7rem);
+            color: var(--petroleo); text-transform: uppercase; line-height: 0.85;
+            position: relative; z-index: 2;
+            max-width: 900px;
+        }
+        header h1 span { display: block; background: var(--petroleo); color: var(--bege); padding: 5px 20px; transform: rotate(-2deg); margin: 10px auto; width: fit-content; }
+
+        /* --- DATA STRIP --- */
+        .data-strip {
+            background: var(--petroleo); color: var(--bege); padding: 40px 5%;
+            display: flex; flex-wrap: wrap; justify-content: space-around; gap: 30px;
+            border-top: 5px solid var(--amarelo); border-bottom: 5px solid var(--amarelo);
+            position: relative; z-index: 5;
+        }
+        .data-item { text-align: center; flex: 1 1 250px; }
+        .data-item h4 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: 'Barlow Condensed'; color: var(--amarelo); line-height: 1; }
+        .data-item p { text-transform: uppercase; font-weight: 700; font-size: 0.85rem; margin-top: 5px; }
+
+        /* --- TITULOS DE SEÇÃO --- */
+        .section-title {
+            text-align: center; font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 3rem); text-transform: uppercase; margin: 60px 0 40px;
+            background: var(--petroleo); color: var(--bege); display: inline-block;
+            padding: 10px 30px; transform: rotate(-1deg);
+            max-width: 90%;
+        }
+        .center-wrap { text-align: center; }
+
+        /* --- GRID DE PROPOSTAS --- */
+        .grid-propostas {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; padding: 0 5% 60px;
+        }
+        .card {
+            background: white; border: 4px solid var(--petroleo);
+            padding: 25px; transition: 0.3s; position: relative;
+        }
+        .card:hover { transform: translateY(-8px); box-shadow: 12px 12px 0px var(--amarelo); }
+        .card h3 {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem;
+            border-bottom: 4px solid var(--azul); display: inline-block;
+            margin-bottom: 15px; text-transform: uppercase;
+        }
+        .card ul { list-style: none; }
+        .card li { margin-bottom: 10px; padding-left: 25px; position: relative; font-size: 1rem; line-height: 1.4; }
+        .card li::before { content: "➔"; position: absolute; left: 0; color: var(--amarelo); font-weight: bold; }
+
+        /* --- QUEM SOMOS --- */
+        
+    .quem-somos {
+    background: var(--azul); color: var(--petroleo); padding: 60px 5%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+}
+
+/* Alterações importantes aqui: */
+.foto-placeholder { 
+    width: 100%; 
+    max-width: 600px; /* Impede que a moldura fique absurdamente larga em telas gigantes */
+    height: 350px; /* Fixa a altura desejada */
+    background: var(--petroleo); 
+    border: 5px solid var(--petroleo); 
+    box-shadow: 15px 15px 0px var(--marrom);
+    overflow: hidden; /* ESSENCIAL: Impede que a imagem saia da moldura */
+    position: relative; /* Para o efeito do object-fit */
+}
+
+/* Adicione/Substitua esta classe: */
+.foto-chapa {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ESSENCIAL: A imagem preenche a moldura sem distorcer, cortando as sobras nas laterais */
+    object-position: center; /* Centraliza o corte nos integrantes */
+}
+
+        /* --- SEÇÃO VOTAR --- */
+        .votar { background: var(--marrom); color: white; padding: 60px 10%; text-align: center; }
+        .votar p { font-size: clamp(1.1rem, 3vw, 1.5rem); max-width: 800px; margin: 20px auto; font-weight: 300; }
+
+        /* --- CONTATO / DUVIDAS --- */
+        .contato { background: var(--petroleo); color: var(--bege); padding: 60px 5%; }
+        .contato-box { background: var(--bege); color: var(--petroleo); padding: clamp(20px, 5vw, 40px); border: 5px solid var(--amarelo); box-shadow: 15px 15px 0px var(--azul); max-width: 800px; margin: 0 auto; }
+        input, select, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 3px solid var(--petroleo); font-family: inherit; font-weight: bold; font-size: 1rem; }
+        .btn { width: 100%; padding: 20px; background: var(--petroleo); color: white; border: none; font-size: 1.2rem; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+        .btn:hover { background: var(--marrom); }
+
+        footer { background: #000; color: #fff; text-align: center; padding: 40px 20px; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+
+        /* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
+        @media (max-width: 850px) {
+            nav { padding: 10px 5%; }
+            nav .brand { font-size: 1rem; }
+            nav .links a { margin-left: 10px; font-size: 0.75rem; }
+            
+            .quem-somos { grid-template-columns: 1fr; text-align: center; }
+            .quem-somos p { text-align: left; }
+            .foto-placeholder { order: -1; } 
+            
+            .grid-propostas { grid-template-columns: 1fr; }
+            header h1 span { transform: rotate(0deg); width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            nav .links { display: flex; gap: 5px; }
+            nav .links a { margin-left: 5px; }
+            .data-strip { padding: 30px 20px; }
+            .data-item { flex: 1 1 100%; }
+            .section-title { padding: 10px 15px; }
+            .contato-box { box-shadow: 10px 10px 0px var(--azul); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">CHAPA 265</div>
+        <div class="links">
+            <a href="#propostas">Propostas</a>
+            <a href="#sobre">Quem Somos</a>
+            <a href="#duvidas">Dúvidas</a>
+        </div>
+    </nav>
+
+    <header>
+        <img src="IDENTIDADE sertão ao litoral .svg" alt="Logo Chapa" class="hero-logo">
+        <div class="section-tag">ELEIÇÕES 20 E 21 DE MAIO</div>
+        <h1>DO SERTÃO<span>AO LITORAL</span></h1>
+        <p style="font-weight: 900; font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--marrom); margin-top: 15px;">RECONSTRUIR E AVANÇAR</p>
+    </header>
+
+    <div class="data-strip">
+        <div class="data-item"><h4>13.568</h4><p>Estudantes Matriculados</p></div>
+        <div class="data-item"><h4>5.965</h4><p>Estudantes em Tempo Integral</p></div>
+        <div class="data-item"><h4>0</h4><p>Restaurantes Universitários</p></div>
+    </div>
+
+    <div id="propostas" class="center-wrap">
+        <h2 class="section-title">Nosso Plano de Lutas</h2>
+    </div>
+
+    <div class="grid-propostas">
+        <div class="card">
+            <h3>Assistência Estudantil</h3>
+            <ul>
+                <li><strong>RU em todos os Campi:</strong> Construção imediata em Benfica, Santo Amaro, Garanhuns, Nazaré e Petrolina.</li>
+                <li><strong>Auxílio Alimentação:</strong> Ampliação e reajuste nos campi sem refeitório.</li>
+                <li><strong>Moradia:</strong> Reajuste da bolsa e criação das Casas Universitárias (CEUPE).</li>
+                <li><strong>Mães UPE:</strong> Brinquedotecas e creches em todas as unidades.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Ensino e Saúde</h3>
+            <ul>
+                <li><strong>Odontologia:</strong> Criação de Banco Institucional de Materiais.</li>
+                <li><strong>Saúde Mental:</strong> Programas de acolhimento psicológico em todos os campi.</li>
+                <li><strong>Água Potável:</strong> Manutenção rigorosa e laudos públicos.</li>
+                <li><strong>Estágios:</strong> Expansão e regularização dos campos de prática.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Transporte e Infra</h3>
+            <ul>
+                <li><strong>Frota Própria:</strong> Aquisição de ônibus da UPE para transporte intercampi.</li>
+                <li><strong>Passe Livre:</strong> Articulação permanente pelo Passe Livre Intermunicipal.</li>
+                <li><strong>Segurança:</strong> Iluminação de LED e monitoramento em áreas críticas.</li>
+                <li><strong>Acessibilidade:</strong> Reformas para garantir acesso universal.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Esporte e Cultura</h3>
+            <ul>
+                <li><strong>Bolsa-Atleta:</strong> Apoio financeiro para estudantes-atletas.</li>
+                <li><strong>Semana de Arte:</strong> Festival cultural anual multicampi.</li>
+                <li><strong>Comunicação:</strong> Criação da Rádio e TV Universitária Digital.</li>
+                <li><strong>Estruturas:</strong> Requalificação de ginásios e piscinas.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Gestão e Política</h3>
+            <ul>
+                <li><strong>Fundo Estadual:</strong> Luta pela assistência permanente.</li>
+                <li><strong>CEB Ativo:</strong> Conselhos mensais e deliberativos com a base.</li>
+                <li><strong>Transparência:</strong> Prestação de contas trimestral aberta a todos.</li>
+                <li><strong>Intercâmbios:</strong> Democratização do acesso à mobilidade internacional.</li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="sobre" class="quem-somos">
+        <div>
+            <h2 style="font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; line-height: 0.9; margin-bottom: 20px;">Quem Somos?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">O Movimento <strong>Do Sertão ao Litoral</strong> une estudantes de Arcoverde ao Recife. Somos a voz de quem luta por uma UPE verdadeiramente democrática.</p>
+            <p style="font-weight: bold; border-left: 5px solid var(--petroleo); padding-left: 15px;">Pela permanência de quem faz a melhor estadual do Norte-Nordeste.</p>
+        </div>
+        <div class="foto-placeholder"><img src="20260518_230949_0000.png" alt="Foto dos integrantes da Chapa 265" class="foto-chapa"></div>
+    </section>
+
+    <section class="votar">
+        <h2 style="font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase;">Por que votar na Chapa 265?</h2>
+        <p>"A universidade abre as portas, mas o nosso movimento garante que você consiga se formar."</p>
+        <div style="margin-top: 30px;">
+            <span style="background: white; color: var(--marrom); padding: 10px 20px; font-weight: 900; margin: 10px; display: inline-block;">ELEIÇÕES: 20 E 21 DE MAIO</span>
+        </div>
+    </section>
+
+    <section id="duvidas" class="contato">
+        <div class="center-wrap">
+            <h2 class="section-title" style="background: var(--amarelo); color: var(--petroleo);">Mande sua Dúvida</h2>
+        </div>
+        <div class="contato-box">
+            <form action="https://formspree.io/f/xkoegzkj" method="POST">
+    <input type="hidden" name="_next" value="sucesso.html">
+                
+                <input type="text" name="Nome" placeholder="NOME COMPLETO" required>
+                <input type="email" name="Contato" placeholder="E-MAIL" required>
+
+                <select name="Campus" required>
+                    <option value="" disabled selected>QUAL A CIDADE DO SEU CAMPUS?</option>
+                    <option value="Petrolina">Petrolina</option>
+                    <option value="Salgueiro">Salgueiro</option>
+                    <option value="Serra Talhada">Serra Talhada</option>
+                    <option value="Arcoverde">Arcoverde</option>
+                    <option value="Garanhuns">Garanhuns</option>
+                    <option value="Caruaru">Caruaru</option>
+                    <option value="Nazaré da Mata">Nazaré da Mata</option>
+                    <option value="Palmares">Palmares</option>
+                    <option value="Recife">Recife</option>
+                </select>
+                <input type="text" name="Especificado" placeholder="Qual é o seu CAMPUS?" required>
+                <textarea name="Mensagem" rows="5" placeholder="DENÚNCIA, DÚVIDA OU SUGESTÃO..."></textarea>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>DO SERTÃO AO LITORAL - RECONSTRUIR E AVANÇAR</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Chapa Candidata ao DCE UPE 2026</p>
+    </footer>
+
+</body>
+</html>
